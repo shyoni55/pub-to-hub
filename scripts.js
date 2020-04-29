@@ -42,25 +42,12 @@ if (window.location.hostname === "www.ncbi.nlm.nih.gov") {
 
 if (window.location.hostname === "sci-hub.tw") {
   chrome.storage.sync.get("pubID", function (data) {
-      
     if (typeof data.pubID !== "undefined") {
-      
-        document.querySelector(
+      document.querySelector(
         "#input > form > input[type=textbox]:nth-child(2)"
       ).value = data.pubID;
       chrome.storage.sync.remove("pubID", function () {});
       document.forms[0].submit();
     }
   });
-
-  //   (async () => {
-  //     let pubID = await GM.getValue("pubid", 0);
-  //     GM.setValue("pubid", 0);
-  //     if (pubID !== 0) {
-  //       document.querySelector(
-  //         "#input > form > input[type=textbox]:nth-child(2)"
-  //       ).value = pubID;
-  //       document.forms[0].submit();
-  //     }
-  //   })();
 }
