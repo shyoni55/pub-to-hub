@@ -12,7 +12,10 @@ if (window.location.hostname === "www.ncbi.nlm.nih.gov") {
     buttonNode.innerHTML = "&#x1F50E;";
     buttonNode.setAttribute("id", pubID);
     buttonNode.setAttribute("type", "button");
-    buttonNode.setAttribute("style", "margin-left:5px");
+    buttonNode.setAttribute(
+      "style",
+      "margin-left:5px;border:none;background-color:white;"
+    );
 
     //put it after the id
 

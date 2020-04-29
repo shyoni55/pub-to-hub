@@ -1,10 +1,8 @@
 {
   "name": "Pub to Hub",
   "version": "1.0",
-  "description": "Search a pubmed paper easily on Sci-Hub",
-  "background": {
-    "scripts": ["background.js"]
-  },
+  "description": "Search a PubMed paper easily on Sci-Hub",
+
   "content_scripts": [
     {
       "matches": [
