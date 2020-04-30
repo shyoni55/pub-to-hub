@@ -7,29 +7,33 @@ if (window.location.hostname === "www.ncbi.nlm.nih.gov") {
 
   for (var index = 0; index < ids.length; index++) {
     var pubID = ids[index].innerText;
-    //create a button
-    var buttonNode = document.createElement("button");
-    buttonNode.innerHTML = "&#x1F50E;";
-    buttonNode.setAttribute("id", pubID);
-    buttonNode.setAttribute("type", "button");
-    buttonNode.setAttribute(
-      "style",
-      "margin-left:5px;border:none;background-color:white;"
-    );
+    //check if this is a pubmed id
+    prev_text = ids[index].previousElementSibling.innerHTML;
+    if (prev_text === "PMID:") {
+      //create a button
+      var buttonNode = document.createElement("button");
+      buttonNode.innerHTML = "&#x1F50E;";
+      buttonNode.setAttribute("id", pubID);
+      buttonNode.setAttribute("type", "button");
+      buttonNode.setAttribute(
+        "style",
+        "margin-left:5px;border:none;background-color:white;"
+      );
 
-    //put it after the id
+      //put it after the id
 
-    var referenceNode = ids[index];
-    referenceNode.parentNode.insertBefore(
-      buttonNode,
-      referenceNode.nextSibling
-    );
+      var referenceNode = ids[index];
+      referenceNode.parentNode.insertBefore(
+        buttonNode,
+        referenceNode.nextSibling
+      );
 
-    //add an event listener
+      //add an event listener
 
-    document
-      .getElementById(pubID)
-      .addEventListener("click", ButtonClickAction, false);
+      document
+        .getElementById(pubID)
+        .addEventListener("click", ButtonClickAction, false);
+    }
   }
 
   function ButtonClickAction(buttonEvent) {
