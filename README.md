@@ -1,6 +1,6 @@
 # Pub-to-Hub
 
-# Easily Search PubMed Papers on Sci-Hub
+## Easily Search PubMed Papers on Sci-Hub
 
 Installation Instructions (Google Chrome)
 
