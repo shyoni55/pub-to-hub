@@ -6,7 +6,7 @@ Installation Instructions (Google Chrome)
 <li>
 Download this repo as a ZIP file from GitHub.
  <p align="center">
-<img src="/images/download.png">
+<img src="/images/download.png" style="max-width:80%">
  </p>
  </li>
 <li>
