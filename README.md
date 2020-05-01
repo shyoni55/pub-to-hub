@@ -4,6 +4,9 @@ Installation Instructions (Google Chrome)
 
 
 1. Download this repo as a ZIP file from GitHub.
+
+   ![Download This Repo](/images/download.png)
+   
 2. Unzip the file and you should have a folder named pub-to-hub-master.
 3. In Chrome go to the extensions page (chrome://extensions).
 4. Enable Developer Mode.
