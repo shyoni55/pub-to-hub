@@ -7,7 +7,8 @@
     {
       "matches": [
         "https://www.ncbi.nlm.nih.gov/pubmed/*",
-        "https://sci-hub.tw/"
+        "https://sci-hub.tw/",
+        "https://pubmed.ncbi.nlm.nih.gov/*"
       ],
       "js": ["scripts.js"]
     }
