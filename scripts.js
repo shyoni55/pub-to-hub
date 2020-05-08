@@ -4,6 +4,7 @@ if (
   window.location.hostname === "www.ncbi.nlm.nih.gov" ||
   window.location.hostname === "pubmed.ncbi.nlm.nih.gov"
 ) {
+  var buttonImage = chrome.runtime.getURL("images/search.svg");
   //find all pubmed IDs
 
   var ids = document.getElementsByTagName("dd");
@@ -16,13 +17,18 @@ if (
       if (prev_text === "PMID:") {
         //create a button
         var buttonNode = document.createElement("button");
-        buttonNode.innerHTML = "&#x1F50E;";
+        // buttonNode.innerHTML = "&#x1F50E;";
         buttonNode.setAttribute("id", pubID);
         buttonNode.setAttribute("type", "button");
         buttonNode.setAttribute(
           "style",
-          "margin:0px; padding:5px; border:none;background-color:white;"
+         `margin-left:5px;padding:5px; border:none;
+          background:url(${buttonImage}); background-size: contain;          
+          background-repeat: no-repeat;
+          background-position: center;`
         );
+        
+        // buttonNode.style.background = buttonImage;
 
         //put it after the id
 
@@ -31,6 +37,8 @@ if (
           buttonNode,
           referenceNode.nextSibling
         );
+        referenceNode.style.marginLeft="5px"
+        referenceNode.parentNode.style.display="flex"
 
         //add an event listener
 
@@ -59,7 +67,7 @@ if (
       buttonNode.setAttribute("type", "button");
       buttonNode.setAttribute(
         "style",
-        "margin:0px; padding:5px; border:none;background-color:white;"
+        "margin:0px; padding:5px; border:none;background-color:white;background-image"
       );
 
       //put it after the id
