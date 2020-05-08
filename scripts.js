@@ -4,6 +4,7 @@ if (
   window.location.hostname === "www.ncbi.nlm.nih.gov" ||
   window.location.hostname === "pubmed.ncbi.nlm.nih.gov"
 ) {
+  var buttonImage = chrome.runtime.getURL("images/search.svg");
   //find all pubmed IDs
 
   var ids = document.getElementsByTagName("dd");
@@ -12,17 +13,28 @@ if (
     for (var index = 0; index < ids.length; index++) {
       var pubID = ids[index].innerText;
       //check if this is a pubmed id
-      prev_text = ids[index].previousElementSibling.innerHTML;
+      try {
+        prev_text = ids[index].previousElementSibling.innerHTML;
+      } catch (error) {
+        prev_text = "";
+      }
+
       if (prev_text === "PMID:") {
         //create a button
         var buttonNode = document.createElement("button");
-        buttonNode.innerHTML = "&#x1F50E;";
+        // buttonNode.innerHTML = "&#x1F50E;";
         buttonNode.setAttribute("id", pubID);
         buttonNode.setAttribute("type", "button");
         buttonNode.setAttribute(
           "style",
-          "margin:0px; padding:5px; border:none;background-color:white;"
+          `margin-left:5px;padding:5px; border:none;
+          background:url(${buttonImage}); background-size: contain;          
+          background-repeat: no-repeat;
+          background-position: center;
+          outline:none;`
         );
+
+        // buttonNode.style.background = buttonImage;
 
         //put it after the id
 
@@ -31,6 +43,8 @@ if (
           buttonNode,
           referenceNode.nextSibling
         );
+        referenceNode.style.marginLeft = "5px";
+        referenceNode.parentNode.style.display = "flex";
 
         //add an event listener
 
@@ -54,12 +68,15 @@ if (
       var pubID = ids[index].innerHTML;
 
       var buttonNode = document.createElement("button");
-      buttonNode.innerHTML = "&#x1F50E;";
       buttonNode.setAttribute("id", pubID);
       buttonNode.setAttribute("type", "button");
       buttonNode.setAttribute(
         "style",
-        "margin:0px; padding:5px; border:none;background-color:white;"
+        `margin-left:5px;padding:5px; border:none;
+        background:url(${buttonImage}); background-size: contain;          
+        background-repeat: no-repeat;
+        background-position: center;
+        outline: none;`
       );
 
       //put it after the id
@@ -68,6 +85,9 @@ if (
         buttonNode,
         referenceNode.nextSibling
       );
+
+      referenceNode.parentNode.style.display = "inline-flex";
+      referenceNode.style.marginLeft = "5px";
 
       //add an event listener
 
